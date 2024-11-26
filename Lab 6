@@ -1,0 +1,81 @@
+# Task 1: Class "Person"
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def display(self):
+        print(f"Name: {self.name}, Age: {self.age}")
+
+# Creating instances of Person
+person1 = Person("Alice", 25)
+person2 = Person("Bob", 30)
+
+print("Task 1:")
+person1.display()
+person2.display()
+print()
+
+# Task 2: Class "Student" with name and roll number
+class Student:
+    def __init__(self, name, roll_no):
+        self.name = name
+        self.roll_no = roll_no
+
+    def display(self):
+        print(f"Name: {self.name}, Roll No: {self.roll_no}")
+
+# Creating an object of Student
+student = Student("John", 2)
+
+print("Task 2:")
+student.display()
+print()
+
+# Task 3: Bank Account Class
+class BankAccount:
+    def __init__(self, account_name):
+        self.account_name = account_name
+        self.balance = 0
+
+    def deposit(self, amount):
+        if amount > 0:
+            self.balance += amount
+            print(f"Deposited: {amount}. New Balance: {self.balance}")
+        else:
+            print("Deposit amount must be positive.")
+
+    def withdraw(self, amount):
+        if amount <= self.balance:
+            self.balance -= amount
+            print(f"Withdrawn: {amount}. Remaining Balance: {self.balance}")
+        else:
+            print("Insufficient balance.")
+
+    def check_balance(self):
+        print(f"Current Balance: {self.balance}")
+
+# Creating and using a BankAccount object
+account = BankAccount("John's Account")
+print("Task 3:")
+account.deposit(1000)
+account.withdraw(500)
+account.check_balance()
+print()
+
+# Task 4: Class "Student" with name and age
+class StudentWithAge:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def display(self):
+        print(f"Student Name: {self.name}, Age: {self.age}")
+
+# Creating multiple StudentWithAge objects
+student1 = StudentWithAge("Alice", 20)
+student2 = StudentWithAge("Bob", 22)
+
+print("Task 4:")
+student1.display()
+student2.display()
