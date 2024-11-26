@@ -1,0 +1,59 @@
+# 1. Program to check if the given number is a Disarium Number
+def is_disarium_number(num):
+    num_str = str(num)
+    return sum(int(digit) ** (index + 1) for index, digit in enumerate(num_str)) == num
+
+# 2. Program to determine whether the given number is a Harshad Number
+def is_harshad_number(num):
+    digit_sum = sum(int(digit) for digit in str(num))
+    return num % digit_sum == 0
+
+# 3. Program to print Armstrong numbers from 1 to 1000
+def armstrong_numbers(limit):
+    armstrong_nums = []
+    for num in range(1, limit + 1):
+        num_str = str(num)
+        power = len(num_str)
+        if sum(int(digit) ** power for digit in num_str) == num:
+            armstrong_nums.append(num)
+    return armstrong_nums
+
+# 4. Program to compute the value of X^n (X raised to the power of n)
+def power(x, n):
+    return x ** n
+
+# 5. Program to calculate the value of nCr (Combination)
+def nCr(n, r):
+    from math import factorial
+    return factorial(n) // (factorial(r) * factorial(n - r))
+
+# 6. Program to count the sum of digits in the entered number
+def sum_of_digits(num):
+    return sum(int(digit) for digit in str(num))
+
+# Testing the implementations
+if __name__ == "__main__":
+    # Disarium Number
+    num = int(input("Enter a number to check if it's a Disarium number: "))
+    print("Disarium Number" if is_disarium_number(num) else "Not a Disarium Number")
+    
+    # Harshad Number
+    num = int(input("Enter a number to check if it's a Harshad number: "))
+    print("Harshad Number" if is_harshad_number(num) else "Not a Harshad Number")
+    
+    # Armstrong Numbers from 1 to 1000
+    print("Armstrong Numbers from 1 to 1000: ", armstrong_numbers(1000))
+    
+    # Compute X^n
+    x = int(input("Enter the base (X): "))
+    n = int(input("Enter the exponent (n): "))
+    print(f"Value of {x}^{n} = {power(x, n)}")
+    
+    # Calculate nCr
+    n = int(input("Enter n: "))
+    r = int(input("Enter r: "))
+    print(f"Value of {n}C{r} = {nCr(n, r)}")
+    
+    # Sum of Digits
+    num = int(input("Enter a number to find the sum of its digits: "))
+    print(f"Sum of digits: {sum_of_digits(num)}")
