@@ -1,0 +1,118 @@
+import math
+
+# ComplexNumber Class
+class ComplexNumber:
+    def __init__(self, real, imaginary):
+        self.real = real
+        self.imaginary = imaginary
+
+    def add(self, c):
+        return ComplexNumber(self.real + c.real, self.imaginary + c.imaginary)
+
+    def magnitude(self):
+        return math.sqrt(self.real**2 + self.imaginary**2)
+
+    def __str__(self):
+        return f"{self.real} + {self.imaginary}i"
+
+
+# Person and Student Classes
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def display(self):
+        print(f"Name: {self.name}")
+        print(f"Age: {self.age}")
+
+
+class Student(Person):
+    def __init__(self, name, age, student_id):
+        super().__init__(name, age)
+        self.student_id = student_id
+
+    def show_details(self):
+        self.display()
+        print(f"Student ID: {self.student_id}")
+
+
+# Vehicle, Car, and ElectricCar Classes
+class Vehicle:
+    def info(self):
+        print("This is a vehicle")
+
+
+class Car(Vehicle):
+    def car_info(self):
+        print("This is a car")
+
+
+class ElectricCar(Car):
+    def battery_info(self):
+        print("This car has a battery")
+
+
+# Teacher, Author, and TutorAuthor Classes
+class Teacher:
+    def description(self):
+        print("I am a Teacher")
+
+
+class Author:
+    def description(self):
+        print("I am an Author")
+
+
+class TutorAuthor(Teacher, Author):
+    def description(self):
+        print("Tutor Author can be both:")
+        super().description()
+        Author.description(self)
+
+
+# Animal, Dog, and Cat Classes
+class Animal:
+    def sound(self):
+        print("Animals make sound")
+
+
+class Dog(Animal):
+    def sound(self):
+        print("Dog barks")
+
+
+class Cat(Animal):
+    def sound(self):
+        print("Cat meows")
+
+
+# Main Function
+if __name__ == "__main__":
+    # ComplexNumber Example
+    c1 = ComplexNumber(3, 4)
+    c2 = ComplexNumber(1, 2)
+    sum_result = c1.add(c2)
+    print(f"Sum: {sum_result}")
+    print(f"Magnitude of c1: {c1.magnitude()}")
+    print(f"Magnitude of c2: {c2.magnitude()}")
+
+    # Person and Student Example
+    student = Student("Alice", 20, 101)
+    student.show_details()
+
+    # Vehicle, Car, and ElectricCar Example
+    ec = ElectricCar()
+    ec.info()
+    ec.car_info()
+    ec.battery_info()
+
+    # Teacher, Author, and TutorAuthor Example
+    tutor_author = TutorAuthor()
+    tutor_author.description()
+
+    # Animal, Dog, and Cat Example
+    dog = Dog()
+    cat = Cat()
+    dog.sound()
+    cat.sound()
