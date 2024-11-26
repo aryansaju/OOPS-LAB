@@ -1,0 +1,77 @@
+# 5. Program to generate Fibonacci Series
+def fibonacci_series(n):
+    a, b = 0, 1
+    series = []
+    for _ in range(n):
+        series.append(a)
+        a, b = b, a + b
+    return series
+
+# 6. Program to calculate factorial using a loop
+def factorial(n):
+    result = 1
+    for i in range(1, n + 1):
+        result *= i
+    return result
+
+# 7. Program to check if a number is an Armstrong number
+def is_armstrong(num):
+    num_str = str(num)
+    power = len(num_str)
+    return sum(int(digit) ** power for digit in num_str) == num
+
+# 8. Program to check if a number is a Perfect number
+def is_perfect(num):
+    return sum(i for i in range(1, num) if num % i == 0) == num
+
+# 9. Program to check if a number is a Strong number
+def is_strong(num):
+    def digit_factorial(d):
+        return factorial(d)
+    return sum(digit_factorial(int(d)) for d in str(num)) == num
+
+# 10. Program to print multiplication tables
+def multiplication_table(n):
+    for i in range(1, 11):
+        print(f"{n} x {i} = {n * i}")
+
+# 11. Program to calculate LCM and GCD of two numbers
+def gcd(a, b):
+    while b:
+        a, b = b, a % b
+    return a
+
+def lcm(a, b):
+    return abs(a * b) // gcd(a, b)
+
+# Testing the implementations
+if __name__ == "__main__":
+    # Fibonacci Series
+    n = int(input("Enter the number of terms for Fibonacci series: "))
+    print(f"Fibonacci Series: {fibonacci_series(n)}")
+    
+    # Factorial Calculation
+    n = int(input("Enter a number to calculate factorial: "))
+    print(f"Factorial: {factorial(n)}")
+    
+    # Armstrong Number Check
+    num = int(input("Enter a number to check if it's Armstrong: "))
+    print("Armstrong" if is_armstrong(num) else "Not Armstrong")
+    
+    # Perfect Number Check
+    num = int(input("Enter a number to check if it's Perfect: "))
+    print("Perfect Number" if is_perfect(num) else "Not Perfect Number")
+    
+    # Strong Number Check
+    num = int(input("Enter a number to check if it's Strong: "))
+    print("Strong Number" if is_strong(num) else "Not Strong Number")
+    
+    # Multiplication Table
+    num = int(input("Enter a number to print its multiplication table: "))
+    multiplication_table(num)
+    
+    # LCM and GCD
+    a = int(input("Enter the first number: "))
+    b = int(input("Enter the second number: "))
+    print(f"GCD of {a} and {b}: {gcd(a, b)}")
+    print(f"LCM of {a} and {b}: {lcm(a, b)}")
