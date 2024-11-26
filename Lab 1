@@ -1,0 +1,58 @@
+# 1. Program to check if a number is Prime
+def is_prime(num):
+    if num <= 1:
+        return False
+    for i in range(2, int(num ** 0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
+
+# 2. Program to check if a number is Palindrome
+def is_palindrome(num):
+    original = str(num)
+    reversed_num = original[::-1]
+    return original == reversed_num
+
+# 3. Program to find the grade of a student based on percentage
+def find_grade(percentage):
+    if percentage >= 90:
+        return "A"
+    elif percentage >= 80:
+        return "B"
+    elif percentage >= 70:
+        return "C"
+    elif percentage >= 60:
+        return "D"
+    else:
+        return "F"
+
+# 4. Simple Console-Based Calculator
+def calculator():
+    print("Simple Calculator")
+    print("Select Operation: ")
+    print("1. Addition")
+    print("2. Subtraction")
+    print("3. Multiplication")
+    print("4. Division")
+
+    choice = input("Enter choice (1/2/3/4): ")
+    if choice not in {'1', '2', '3', '4'}:
+        print("Invalid choice!")
+        return
+
+    num1 = float(input("Enter first number: "))
+    num2 = float(input("Enter second number: "))
+
+    if choice == '1':
+        print(f"Result: {num1 + num2}")
+    elif choice == '2':
+        print(f"Result: {num1 - num2}")
+    elif choice == '3':
+        print(f"Result: {num1 * num2}")
+    elif choice == '4':
+        if num2 == 0:
+            print("Division by zero is not allowed.")
+        else:
+            print(f"Result: {num1 / num2}")
+
+
